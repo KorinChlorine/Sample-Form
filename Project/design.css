@@ -9,10 +9,11 @@
 }
 
 body {
-  margin: 0;
+  margin: 10px;
   height: 200vh;
   background: linear-gradient(to bottom, #130317, #020002);
   background-repeat: no-repeat;
+  background-position: cover;
 }
 
 hr {
