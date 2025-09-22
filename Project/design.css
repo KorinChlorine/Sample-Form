@@ -11,7 +11,7 @@
 body {
   margin: 0;
   height: 200vh;
-  background: linear-gradient(to bottom, #200627, #020002);
+  background: linear-gradient(to bottom, #130317, #020002);
   background-repeat: no-repeat;
 }
 
@@ -21,22 +21,28 @@ hr {
   background: #06eb4b;
 }
 
-.fill {
+.f {
   background-color: #06eb4b;
 }
 
-.empty {
+.e {
   background-color: #011b09;
 }
 
 td,
 th {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 
 table {
-  margin-left: auto;
-  margin-right: auto;
   border: 1px solid #06eb4b;
+  margin-top: 40px;
+}
+
+.tables {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
 }
