@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Responsive HTML & CSS Template</title>
+    <!--
+    Mobile-first, single-file responsive template.
+    Features:
+      - fluid typography with clamp()
+      - CSS variables for easy theming
+      - flexible header/nav that becomes a hamburger on small screens
+      - responsive grid for card content
+      - accessible buttons and focus styles
+      - example media query breakpoints (768px, 1024px)
+  -->
+    <style>
+      /* ========== Variables & Reset ========== */
+      :root {
+        --bg: #f6f7fb;
+        --card: #ffffff;
+        --accent: #0066ff;
+        --muted: #6b7280;
+        --radius: 12px;
+        --container: 1100px;
+        --gap: 1rem;
+        --shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        background: var(--bg);
+        color: #0f172a;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.4;
+        padding: 2rem 1rem;
+        display: flex;
+        justify-content: center;
+      }
+
+      /* Fluid container */
+      .wrap {
+        width: 100%;
+        max-width: var(--container);
+        margin: 0 auto;
+      }
+
+      /* ========== Typography (fluid) ========== */
+      h1 {
+        font-size: clamp(1.4rem, 3vw + 0.5rem, 2.4rem);
+        margin: 0;
+      }
+      h2 {
+        font-size: clamp(1.1rem, 2.2vw + 0.4rem, 1.6rem);
+        margin: 0;
+      }
+      p {
+        font-size: clamp(0.95rem, 1.6vw + 0.2rem, 1.05rem);
+        color: var(--muted);
+      }
+
+      /* ========== Header / Nav ========== */
+      header {
+        background: linear-gradient(
+          180deg,
+          rgba(0, 102, 255, 0.06),
+          transparent
+        );
+        padding: 1rem;
+        border-radius: var(--radius);
+        margin-bottom: 1.25rem;
+        box-shadow: var(--shadow);
+      }
+
+      .header-inner {
+        display: flex;
+        gap: var(--gap);
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+      }
+      .logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: var(--accent);
+        display: inline-grid;
+        place-items: center;
+        color: #fff;
+        font-weight: 700;
+      }
+
+      nav {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        padding: 0.4rem 0.6rem;
+        border-radius: 8px;
+      }
+      nav a:hover,
+      nav a:focus {
+        background: rgba(0, 0, 0, 0.04);
+        color: var(--accent);
+        outline: none;
+      }
+
+      /* hamburger for small screens */
+      .hamburger {
+        display: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        border: 1px solid rgba(15, 23, 42, 0.06);
+        background: white;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      /* ========== Hero ========== */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .hero-card {
+        background: var(--card);
+        padding: 1.25rem;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .cta-row {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-top: 0.75rem;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 0.9rem;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: white;
+      }
+      .btn-outline {
+        background: transparent;
+        border: 1px solid rgba(15, 23, 42, 0.06);
+      }
+
+      /* ========== Grid of cards ========== */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: var(--gap);
+      }
+
+      .card {
+        background: var(--card);
+        padding: 1rem;
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        min-height: 120px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .card img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      /* ========== Footer ========== */
+      footer {
+        margin-top: 1rem;
+        text-align: center;
+        color: var(--muted);
+      }
+
+      /* ========== Responsive Breakpoints ========== */
+      @media (min-width: 640px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .hero {
+          grid-template-columns: 1fr 360px;
+        }
+      }
+
+      @media (min-width: 900px) {
+        .grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        nav {
+          gap: 1.25rem;
+        }
+        .hamburger {
+          display: none;
+        }
+      }
+
+      /* Show hamburger & hide nav links on very small screens */
+      @media (max-width: 639px) {
+        nav {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+      }
+
+      /* Simple focus-visible for accessibility */
+      :focus {
+        outline: 2px solid transparent;
+      }
+      :focus-visible {
+        outline: 3px solid rgba(0, 102, 255, 0.18);
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="header-inner">
+          <div class="brand">
+            <div class="logo">PD</div>
+            <div>
+              <div style="font-weight: 700">Programmers' Den</div>
+              <div style="font-size: 0.85rem; color: var(--muted)">
+                Responsive Template
+              </div>
+            </div>
+          </div>
+
+          <nav aria-label="Main navigation">
+            <a href="#">Home</a>
+            <a href="#features">Features</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </nav>
+
+          <button
+            class="hamburger"
+            aria-label="Open menu"
+            onclick="toggleMenu()"
+          >
+            ☰
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-card">
+            <h1>Make your site look great on any screen</h1>
+            <p>
+              Mobile-first responsive layout using flexbox & grid, fluid type,
+              and a few simple breakpoints. Copy and use this structure as a
+              starting point.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#features">Get started</a>
+              <a class="btn btn-outline" href="#projects">See examples</a>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-hidden="false">
+            <h2 id="features">Quick tips</h2>
+            <ul
+              style="
+                margin: 0.5rem 0;
+                padding-left: 1.05rem;
+                color: var(--muted);
+              "
+            >
+              <li>
+                Use <code>meta viewport</code> and a mobile-first CSS approach.
+              </li>
+              <li>
+                Prefer relative units (%, rem, vw) and <code>clamp()</code> for
+                fluid sizes.
+              </li>
+              <li>Use CSS Grid for layouts and Flexbox for components.</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section class="grid" id="projects">
+          <article class="card">
+            <img
+              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+              alt="Project screenshot"
+            />
+            <h3>Project One</h3>
+            <p>Short description explaining the highlights of this project.</p>
+            <div style="margin-top: auto">
+              <a class="btn btn-outline" href="#">View</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+              alt="Project screenshot"
+            />
+            <h3>Project Two</h3>
+            <p>Short description explaining the highlights of this project.</p>
+            <div style="margin-top: auto">
+              <a class="btn btn-outline" href="#">View</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+              alt="Project screenshot"
+            />
+            <h3>Project Three</h3>
+            <p>Short description explaining the highlights of this project.</p>
+            <div style="margin-top: auto">
+              <a class="btn btn-outline" href="#">View</a>
+            </div>
+          </article>
+        </section>
+
+        <footer>
+          <p>
+            Made with care — resize the browser to see the responsive behavior.
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      // Small JS used only to toggle nav on tiny screens
+      function toggleMenu() {
+        const nav = document.querySelector("nav");
+        if (!nav) return;
+        nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+        nav.style.flexDirection = "column";
+        nav.style.position = "absolute";
+        nav.style.right = "1rem";
+        nav.style.top = "72px";
+        nav.style.background = "white";
+        nav.style.padding = "0.6rem";
+        nav.style.borderRadius = "10px";
+        nav.style.boxShadow = "0 8px 24px rgba(2,6,23,0.08)";
+      }
+    </script>
+  </body>
+</html>
