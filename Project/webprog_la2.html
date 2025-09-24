@@ -797,16 +797,68 @@
       </div>
       <br />
     </div>
+    <!-- Registration Form-->
+    <div id="registerModal" class="modal-overlay">
+      <div class="modal-content">
+        <h2>Register to Continue</h2>
+        <form id="registerForm">
+          <label for="regFullName">Full Name</label>
+          <input
+            type="text"
+            id="regFullName"
+            name="regFullName"
+            required
+            placeholder="Full Name"
+          />
 
-    <form>
-      <h3 class="text1">Name</h3>
-      <input
-        class="text1"
-        type="text"
-        id="input"
-        placeholder="Type something..."
-      />
-    </form>
+          <label for="regEmail">Email</label>
+          <input
+            type="email"
+            id="regEmail"
+            name="regEmail"
+            required
+            placeholder="Email"
+          />
+
+          <label for="regPassword">Password</label>
+          <input
+            type="password"
+            id="regPassword"
+            name="regPassword"
+            required
+            placeholder="Password"
+          />
+
+          <label for="regConfirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            id="regConfirmPassword"
+            name="regConfirmPassword"
+            required
+            placeholder="Confirm Password"
+          />
+
+          <label for="regGender">Gender</label>
+          <select id="regGender" name="regGender" required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="regProgram">Program</label>
+          <select id="regProgram" name="regProgram" required>
+            <option value="">Select Program</option>
+            <option value="BSIT">BSIT</option>
+            <option value="BSCS">BSCS</option>
+            <option value="BSIS">BSIS</option>
+          </select>
+
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+      </div>
+      s
+    </div>
+    <script src="func.js"></script>
   </body>
-  <link rel="javascript" href="func.js" />
 </html>
