@@ -130,3 +130,18 @@ table {
 border: 5px solid #06eb4b;
 }
 
+.registerButton {
+  width: 200px;
+  height: 75px;
+  border: 3px solid #06eb4b;
+  align-content: center;
+  background-color: #011b09;
+  color: #06eb4b;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  align-items: center;
+}
