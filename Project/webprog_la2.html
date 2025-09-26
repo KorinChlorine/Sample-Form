@@ -11,7 +11,6 @@
     <div class="Header">
       <h1>Kharl Polinar Asuncion</h1>
       <h2>BSCS - 3A</h2>
-      <hr />
     </div>
 
     <!--PIXEL ART-->
@@ -797,9 +796,10 @@
       </div>
       <br />
     </div>
-    <!-- Registration Form-->
+    <!-- REGISTRATION FORM-->
     <div id="registerModal" class="modal-overlay">
       <div class="modal-content">
+        <span id="closeRegisterModal" class="close-btn">&times;</span>
         <h2>Register to Continue</h2>
         <form id="registerForm">
           <label for="regFullName">Full Name</label>
@@ -858,8 +858,65 @@
         </form>
       </div>
     </div>
-    <button type="button" class="registerButton">Open Register Form</button>
+
+    <div class="button-container">
+      <button class="registerButton" id="openRegisterModal">
+        Open Register Form
+      </button>
+    </div>
+    <br />
+
+    <!--YOUTUBE VIDEO-->
+    <div class="video-container">
+      <button id="prevVideo" class="carousel-btn">&#8592; Prev</button>
+      <iframe
+        id="carouselIframe"
+        class="video"
+        width="760"
+        height="415"
+        src="https://www.youtube.com/embed/BuxlNmPdXRk?si=n9OkH9tBpFOeYhAp"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+      <button id="nextVideo" class="carousel-btn">Next &#8594;</button>
+    </div>
+
+    <div class="grid-container">
+      <div class="plane">
+        <div class="grid"></div>
+        <div class="glow"></div>
+      </div>
+      <div class="plane">
+        <div class="grid"></div>
+        <div class="glow"></div>
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <hr />
 
     <script src="func.js"></script>
+    <script>
+      const videoUrls = [
+        "https://www.youtube.com/embed/BuxlNmPdXRk?si=n9OkH9tBpFOeYhAp",
+        "https://www.youtube.com/embed/2lgGJRWUIvM?si=ft6pt2lTIanYQXRX",
+        "https://www.youtube.com/embed/o_Go1ah3Vds?si=eHpXfdI57rd2cMBR",
+      ];
+      let currentVideo = 0;
+      const iframe = document.getElementById("carouselIframe");
+      document.getElementById("prevVideo").onclick = function () {
+        currentVideo = (currentVideo - 1 + videoUrls.length) % videoUrls.length;
+        iframe.src = videoUrls[currentVideo];
+      };
+      document.getElementById("nextVideo").onclick = function () {
+        currentVideo = (currentVideo + 1) % videoUrls.length;
+        iframe.src = videoUrls[currentVideo];
+      };
+    </script>
   </body>
 </html>

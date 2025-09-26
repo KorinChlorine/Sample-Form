@@ -14,4 +14,14 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("registerModal").style.display = "none";
     document.body.style.overflow = "";
   };
+
+  document.getElementById("closeRegisterModal").onclick = function () {
+    document.getElementById("registerModal").style.display = "none";
+    document.body.style.overflow = "";
+  };
+
+  document.getElementById("openRegisterModal").onclick = function () {
+    document.getElementById("registerModal").style.display = "flex";
+    document.body.style.overflow = "hidden";
+  };
 });
