@@ -1,3 +1,152 @@
+/* IMPORTS & RESETS */
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BASE/GLOBAL STYLES */
+body {
+  background: black;
+  background-repeat: no-repeat;
+  background-position: cover;
+}
+
+/* LAYOUT CONTAINERS */
+.button-container {
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  align-items: center;
+  gap: 200px;
+}
+
+.grid-container {
+  --grid: 10rem;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+  perspective: 100rem;
+  animation: rotate 100s linear infinite forwards;
+  z-index: -1;
+}
+
+/* HEADER & TYPOGRAPHY */
+.Header {
+  margin-top: 50px;
+  padding: 1%;
+  text-align: center;
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin-top: 5px;
+}
+
+h3 {
+  color: #06eb4b;
+  font-size: 50px;
+}
+
+hr {
+  border: 0;
+  height: 5px;
+  background: #06eb4b;
+}
+
+/* PIXEL ART & TABLES */
+.pixelart {
+  border: 5px solid #06eb4b;
+  border-radius: 15px;
+}
+
+.tables {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 15px;
+}
+
+table {
+  border: 1px solid #06eb4b;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+}
+
+td,
+th {
+  width: 30px;
+  height: 30px;
+}
+
+.f {
+  background-color: #06eb4b;
+}
+
+.e {
+  background-color: #011b09;
+}
+
+.text1 {
+  position: relative;
+  left: 100px;
+  top: 100px;
+}
+
+/* BUTTONS */
+.registerButton {
+  width: 200px;
+  height: 75px;
+  border: 3px solid #06eb4b;
+  justify-content: center;
+  background-color: #011b09;
+  color: #06eb4b;
+  font-size: 20px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.registerButton:hover {
+  background-color: #04c13a;
+  color: #f1f1f1;
+  border: 3px solid #04c13a;
+  animation-delay: 1s;
+}
+
+.carousel-btn {
+  background: #06eb4b;
+  color: #011b09;
+  border: none;
+  border-radius: 111px;
+  font-size: 1.5rem;
+  padding: 20px 20px;
+  margin: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 1s;
+}
+.carousel-btn:hover {
+  background: #c5c7c6;
+}
+
+/* MODAL STYLES */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -20,6 +169,21 @@
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: #06eb4b;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2.5rem;
+  color: #06eb4b;
+  cursor: pointer;
+  z-index: 10001;
+  transition: color 0.2s;
+}
+.close-btn:hover {
+  color: #04c13a;
 }
 
 .modal-content h2 {
@@ -63,149 +227,113 @@
 .submit-btn:hover {
   background: #04c13a;
 }
-.Header {
-  margin-top: 50px;
-  padding: 1%;
-  text-align: center;
-  color: white;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  margin-top: 5px;
+.submit-btn:hover {
+  background: #c6e4ce;
 }
 
-html,
-body {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: black;
-  background-repeat: no-repeat;
-  background-position: cover;
-}
-
-h3 {
-  color: #06eb4b;
-  font-size: 50px;
-}
-
-hr {
-  border: 0;
-  height: 5px;
-  background: #06eb4b;
-}
-
-.f {
-  background-color: #06eb4b;
-}
-
-.e {
-  background-color: #011b09;
-}
-
-td,
-th {
-  width: 30px;
-  height: 30px;
-}
-
-table {
-  border: 1px solid #06eb4b;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  border-radius: 15px;
-}
-
-.tables {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  align-items: flex-start;
-  border-radius: 15px;
-}
-
-.text1 {
-  position: relative;
-  left: 100px;
-  top: 100px;
-}
-
-.pixelart {
-  border: 5px solid #06eb4b;
-  border-radius: 15px;
-}
-
-.registerButton {
-  width: 200px;
-  height: 75px;
-  border: 3px solid #06eb4b;
-  justify-content: center;
-  background-color: #011b09;
-  color: #06eb4b;
-  font-size: 20px;
-  border-radius: 8px;
-}
-
-.button-container {
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  align-items: center;
-}
-
+/* VIDEO CAROUSEL */
 .video {
   border: 5px solid #06eb4b;
   border-radius: 15px;
   align-items: center;
 }
 
-.video-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  align-items: center;
-  gap: 200px;
-}
-
-.submit-btn:hover {
-  background: #c6e4ce;
-}
-
-.carousel-btn {
-  background: #06eb4b;
-  color: #011b09;
-  border: none;
-  border-radius: 111px;
-  font-size: 1.5rem;
-  padding: 20px 20px;
-  margin: 10px 10px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 1s;
-  margin: 20px;
-}
-.carousel-btn:hover {
-  background: #c5c7c6;
-}
-
-.close-btn {
+/* GRID ANIMATION */
+.grid-container .plane {
+  --dir: 1;
+  width: 300%;
+  height: 150%;
+  min-height: 70rem;
   position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 2.5rem;
-  color: #06eb4b;
-  cursor: pointer;
-  z-index: 10001;
-  transition: color 0.2s;
+  bottom: 0;
+  transform-style: preserve-3d;
+  transform-origin: bottom center;
+  transform: translateX(-50%) rotateX(85deg);
 }
-.close-btn:hover {
-  color: #04c13a;
+.grid-container .plane:last-child {
+  --dir: -1;
+  top: 0;
+  transform-origin: top center;
+  transform: translateX(-50%) rotateX(-85deg);
+}
+.grid-container .plane:last-child > *::after {
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 255) var(--grid),
+    rgba(0, 0, 0, 0)
+  );
+}
+.grid-container .plane > * {
+  transform-style: preserve-3d;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.grid-container .plane > *::before,
+.grid-container .plane > *::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.grid-container .plane > *::before {
+  background-image: repeating-linear-gradient(
+      to left,
+      green,
+      green 4px,
+      transparent 4px,
+      transparent var(--grid)
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      green,
+      green 4px,
+      transparent 4px,
+      transparent var(--grid)
+    );
+  animation: move 1s linear infinite forwards;
+}
+.grid-container .plane > *::after {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 255) var(--grid),
+    rgba(0, 0, 0, 0)
+  );
+  z-index: 1;
+  transform: translateZ(1px);
+}
+.grid-container .plane .glow {
+  filter: blur(1rem);
+  z-index: 1;
+  mix-blend-mode: plus-lighter;
+}
+
+/* ANIMATIONS */
+@keyframes move {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(calc(var(--grid) * var(--dir)));
+  }
+}
+
+@keyframes blink {
+  0% {
+    visibility: visible;
+  }
+  50% {
+    visibility: visible;
+  }
+  51% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+  }
 }
 
 @keyframes fadeIn {
@@ -231,134 +359,4 @@ table {
 .fade-out {
   animation: fadeOut 0.5s;
   opacity: 0;
-}
-
-.registerButton:hover {
-  background-color: #04c13a;
-  color: #f1f1f1;
-  border: 3px solid #04c13a;
-  animation-delay: 1s;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
-
-.grid-container {
-  --grid: 10rem;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform-style: preserve-3d;
-  perspective: 100rem;
-  animation: rotate 100s linear infinite forwards;
-  z-index: -1;
-  .plane {
-    --dir: 1;
-    width: 300%;
-    height: 150%;
-    min-height: 70rem;
-    position: absolute;
-    bottom: 0;
-    transform-style: preserve-3d;
-    transform-origin: bottom center;
-    transform: translateX(-50%) rotateX(85deg);
-
-    &:last-child {
-      --dir: -1;
-      top: 0;
-      transform-origin: top center;
-      transform: translateX(-50%) rotateX(-85deg);
-
-      & > * {
-        &::after {
-          background-image: linear-gradient(
-            to top,
-            rgba(0, 0, 0, 255) var(--grid),
-            rgba(0, 0, 0, 0)
-          );
-        }
-      }
-    }
-
-    & > * {
-      transform-style: preserve-3d;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-
-      &::before,
-      &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-      }
-
-      &::before {
-        background-image: repeating-linear-gradient(
-            to left,
-            green,
-            green 4px,
-            transparent 4px,
-            transparent var(--grid)
-          ),
-          repeating-linear-gradient(
-            to bottom,
-            green,
-            green 4px,
-            transparent 4px,
-            transparent var(--grid)
-          );
-        animation: move 1s linear infinite forwards;
-      }
-
-      &::after {
-        background-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 255) var(--grid),
-          rgba(0, 0, 0, 0)
-        );
-        z-index: 1;
-        transform: translateZ(1px);
-      }
-    }
-
-    .glow {
-      filter: blur(1rem);
-      z-index: 1;
-      mix-blend-mode: plus-lighter;
-    }
-  }
-}
-
-@keyframes move {
-  from {
-    transform: translateY(0px);
-  }
-
-  to {
-    transform: translateY(calc(var(--grid) * var(--dir)));
-  }
-}
-
-@keyframes blink {
-  0% {
-    visibility: visible;
-  }
-
-  50% {
-    visibility: visible;
-  }
-
-  51% {
-    visibility: hidden;
-  }
-
-  100% {
-    visibility: hidden;
-  }
 }

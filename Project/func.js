@@ -1,3 +1,4 @@
+//REGISTRATION
 window.onload = function () {
   document.getElementById("registerModal").style.display = "flex";
   document.body.style.overflow = "hidden";
